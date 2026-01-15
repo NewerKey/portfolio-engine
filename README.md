@@ -8,9 +8,9 @@ This repository serves as the Presentation Layer (Engine) for my personal portfo
 
 The platform follows a Headless CMS pattern using Git as the single source of truth.
 
-[Image]
+![alt text](image.png)
 
-- Engine: Hugo (Static Site Generator) using the PaperMod theme.
+- Engine: Hugo (Static Site Generator) using the `PaperMod` theme.
 
 - Content: Private Obsidian Markdown files.
 

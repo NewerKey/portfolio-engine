@@ -1,4 +1,4 @@
-baseURL = 'https://NewerKey/.github.io'
+baseURL = "https://newerkey.github.io/portfolio-engine/"
 languageCode = 'en-us'
 title = 'Yvette Nartey'
 theme = "PaperMod"

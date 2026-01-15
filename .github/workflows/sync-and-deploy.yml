@@ -1,0 +1,50 @@
+name: Build and Deploy Portfolio
+
+on:
+  # Allows external triggers (eg. From Obsidian Private Repo)
+  repository_dispatch:
+    types: [publish-event]
+  # Allows manual button click in GitHub UI
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Engine (This Repo)
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Checkout Content (Your Private Obsidian Vault)
+        uses: actions/checkout@v3
+        with:
+          repository: NewerKey/obsidian-portfolio-vault
+          token: ${{ secrets.PAT_TOKEN }}
+          path: temp_vault
+
+      - name: Install obsidian-export
+        run: |
+          wget https://github.com/zoni/obsidian-export/releases/download/v0.4.0/obsidian-export-linux-x86_64 -O obsidian-export
+          chmod +x obsidian-export
+
+      - name: Process Obsidian Files
+        run: |
+          # 1. Export only files with "publish: true" in frontmatter
+          mkdir content
+          ./obsidian-export temp_vault content --frontmatter="publish:true"
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.119.0"
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

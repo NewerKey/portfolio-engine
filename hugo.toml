@@ -1,0 +1,42 @@
+baseURL = 'https://NewerKey/.github.io'
+languageCode = 'en-us'
+title = 'Yvette Nartey'
+theme = "PaperMod"
+
+
+[params]
+    defaultTheme = "light"
+    env = "production"
+    description = "Infrastructure Support Engineer | Digital Garden"
+
+# Minimalist Layout Settings
+[params.assets]
+    disableHLJS = false 
+
+# HomePage 
+[params.profileMode]
+    enabled = true
+    title = "Yvette Nartey" 
+    subtitle = "Supporting and Building reliable platforms. Automating the rest where necessary."
+    imageUrl = "" # Keep empty for text-only minimalism
+    imageTitle = ""
+
+
+    [[params.profileMode.buttons]]
+      name = "Projects"
+      url = "/projects"
+    [[params.profileMode.buttons]]
+      name = "Notes"
+      url = "/notes"
+
+# Main Menu (Simple)
+[[menu.main]]
+  identifier = "projects"
+  name = "Projects"
+  url = "/projects/"
+  weight = 10
+[[menu.main]]
+  identifier = "notes"
+  name = "Notes"
+  url = "/notes/"
+  weight = 20

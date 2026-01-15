@@ -1,0 +1,26 @@
+:root {
+  --gap: 24px;
+  --content-gap: 20px;
+  --nav-width: 1024px;
+  --main-width: 720px; /* Narrower reading width */
+}
+
+body {
+  background-color: #fafafa; /* Off-white paper look */
+  color: #222;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto,
+    sans-serif;
+}
+
+/* Force center alignment for that "Minimalist" essay look */
+.main {
+  margin: 0 auto;
+  max-width: var(--main-width);
+}
+
+/* Remove sidebars and distractions */
+.post-meta,
+.post-tags {
+  color: #666;
+  font-size: 0.9rem;
+}

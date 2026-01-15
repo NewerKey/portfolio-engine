@@ -1,6 +1,9 @@
 name: Build and Deploy Portfolio
 
 on:
+  push:
+    branches:
+      - main
   # Allows external triggers (eg. From Obsidian Private Repo)
   repository_dispatch:
     types: [publish-event]

@@ -32,7 +32,9 @@ jobs:
 
       - name: Process Obsidian Files
         run: |
-          # 1. Export only files with "publish: true" in frontmatter
+          # 1. Cleanup previous content
+          rm -rf content
+          # 2. Export markdown files from Obsidian vault to Hugo content folder 
           mkdir content
           ./obsidian-export temp_vault content --frontmatter="publish:true"
 

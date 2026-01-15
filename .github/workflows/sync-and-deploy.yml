@@ -32,11 +32,13 @@ jobs:
 
       - name: Process Obsidian Files
         run: |
-          # 1. Cleanup previous content
+          mkdir temp_export
+          ./obsidian-export temp_vault temp_export --frontmatter=always
+
+          grep -rL "publish: true" temp_export | xargs -I {} rm "{}"
+
           rm -rf content
-          # 2. Export markdown files from Obsidian vault to Hugo content folder 
-          mkdir content
-          ./obsidian-export temp_vault content --frontmatter="publish:true"
+          mv temp_export content
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2

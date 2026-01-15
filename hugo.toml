@@ -11,15 +11,13 @@ theme = "PaperMod"
 
 # Minimalist Layout Settings
 [params.assets]
-    disableHLJS = false 
+    disableHLJS = true 
 
 # HomePage 
 [params.profileMode]
     enabled = true
     title = "Yvette Nartey" 
     subtitle = "Supporting and Building reliable platforms. Automating the rest where necessary."
-    imageUrl = "" # Keep empty for text-only minimalism
-    imageTitle = ""
 
 
     [[params.profileMode.buttons]]

@@ -1,43 +1,75 @@
 baseURL = "https://newerkey.github.io/portfolio-engine/"
-languageCode = 'en-us'
+languageCode = "en-us"
 theme = "PaperMod"
 
-
 [params]
-    defaultTheme = "light"
-    env = "production"
-    description = "Infrastructure Support Engineer | Digital Garden"
+  defaultTheme = "light"
+  env = "production"
+  description = "Infrastructure Support Engineer | Digital Garden"
 
-# Minimalist Layout Settings
-    [params.assets]
-      disableHLJS = true
+  # Minimalist Layout Settings
+  [params.assets]
+    disableHLJS = true
 
-    [params.label]
-      icon = "logoT.png"
-      iconHeight = 150
-      text = ""
+  [params.label]
+    icon = "logoT.png"
+    iconHeight = 150
+    text = ""
 
-# HomePage 
-    [params.profileMode]
-      enabled = true
-      title = "Heya, I'm Yvette" 
-      subtitle = "I maintain, improve, and design reliable software systems—and keep an eye out for automation opportunities that give you back time and focus."
+  # HomePage 
+  [params.profileMode]
+    enabled = true
+    title = "Heya, I'm Yvette"
+    subtitle = "I maintain, improve, and design reliable software systems—and keep an eye out for automation opportunities that give you back time and focus."
 
-# Main Menu (Simple)
-[[menu.main]]
-  identifier = "about"
-  name = "About"
-  url = "/about/"
-  weight = 10
+# ==========================
+# Main Menu
+# ==========================
+[menu]
 
-[[menu.main]]
-  identifier = "projects"
-  name = "Projects"
-  url = "/projects/"
-  weight = 10
+  # Top-level: About
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "/about/"
+    weight     = 10
 
-[[menu.main]]
-  identifier = "blog"
-  name = "Blog"
-  url = "/blog/"
-  weight = 20
+  # Top-level: Projects
+  [[menu.main]]
+    identifier = "projects"
+    name       = "Projects"
+    url        = "/projects/"
+    weight     = 20
+
+  # Top-level: Blog (parent for submenu)
+  [[menu.main]]
+    identifier = "blog"
+    name       = "Blog"
+    url        = "/blog/"
+    weight     = 30
+
+  # ---- Blog submenus ----
+
+  [[menu.main]]
+    name   = "Start here"
+    url    = "/blog/start-here/"
+    parent = "blog"
+    weight = 31
+
+  [[menu.main]]
+    name   = "How I do things"
+    url    = "/blog/how-i-do-things/"
+    parent = "blog"
+    weight = 32
+
+  [[menu.main]]
+    name   = "Deep Dives"
+    url    = "/blog/deep-dives/"
+    parent = "blog"
+    weight = 33
+
+  [[menu.main]]
+    name   = "Cheatsheets"
+    url    = "/blog/cheatsheets/"
+    parent = "blog"
+    weight = 34

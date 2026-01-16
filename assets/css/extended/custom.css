@@ -54,7 +54,7 @@ body {
   padding-top: 32px; /* slightly more space above logo */
   padding-bottom: 24px; /* room before page content */
   gap: 12px; /* space between logo and menu block */
-  position: relative; /* for absolute-positioned toggle */
+  position: relative; /* for absolute-positioned switches */
 }
 
 /* Logo + title block */
@@ -78,7 +78,7 @@ body {
   display: block;
   margin: 0 auto 6px auto; /* small gap under image */
   height: auto !important; /* ignore inline height from iconHeight */
-  max-height: 140px; /* 🔼 bigger logo on desktop */
+  max-height: 160px; /* bigger logo on desktop */
   width: auto;
   max-width: 100%; /* prevent overflow on narrow screens */
 }
@@ -90,7 +90,7 @@ body {
   }
 }
 
-/* Site title next to/under logo (if label.text is non-empty) */
+/* Site title text under logo (if label.text is non-empty) */
 .logo span {
   font-size: 1.05rem;
   font-weight: 600;
@@ -98,11 +98,17 @@ body {
     Roboto, sans-serif;
 }
 
-/* Theme toggle pinned top-right of header, out of layout flow */
-.theme-toggle {
+/* Position theme toggle & language switch as a small cluster, top-right */
+.logo-switches {
   position: absolute;
   top: 20px;
   right: 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#theme-toggle {
   margin: 0;
 }
 
@@ -141,8 +147,7 @@ body {
 }
 
 /* Active/current page link – bold + dark + small underline */
-.menu a.active,
-.menu a[aria-current="page"] {
+.menu span.active {
   font-weight: 600;
   color: #000;
   border-bottom: 2px solid #000;
@@ -152,18 +157,18 @@ body {
 .menu a:hover {
   color: #111;
 }
-
 /* =========================
    Dropdown submenus on hover
    ======================== */
 
 /* Top-level menu items anchor the dropdowns */
-.menu ul > li {
+.menu ul > li,
+.menu .menu-item {
   position: relative;
 }
 
 /* Hidden submenu by default; appears directly under parent item */
-.menu ul li ul {
+.menu .submenu {
   display: none;
   position: absolute;
   top: 100%;
@@ -173,7 +178,7 @@ body {
   padding: 6px 0;
   margin: 8px 0 0 0;
   list-style: none;
-  min-width: 180px;
+  min-width: 220px; /* a bit wider for text */
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   border-radius: 6px;
   border: 1px solid #eee;
@@ -181,25 +186,26 @@ body {
 }
 
 /* Show submenu on hover or keyboard focus */
-.menu ul li:hover > ul,
-.menu ul li:focus-within > ul {
+.menu .menu-item:hover > .submenu,
+.menu .menu-item:focus-within > .submenu {
   display: block;
 }
 
-/* Submenu links */
-.menu ul li ul li a {
+/* Submenu links – same style family as top level, just slightly smaller */
+.menu .submenu li a {
   display: block;
-  padding: 6px 16px;
-  font-size: 0.95rem;
-  color: #222;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #555;
   text-decoration: none;
   white-space: nowrap;
-  text-transform: none; /* subitems can be normal case */
-  letter-spacing: 0;
 }
 
 /* Hover state for submenu items */
-.menu ul li ul li a:hover {
+.menu .submenu li a:hover {
+  color: #111;
   background-color: #f0f0f0;
 }
 
@@ -207,7 +213,6 @@ body {
    Home / profileMode content
    ======================== */
 
-/* Center hero block and match content width */
 .profile,
 .home-info {
   margin-top: 16px !important;

@@ -5,6 +5,8 @@
   --main-width: 720px; /* Narrower reading width */
 }
 
+/* Base */
+
 body {
   background-color: #fafafa; /* Off-white paper look */
   color: #222;
@@ -12,56 +14,123 @@ body {
     sans-serif;
 }
 
-/* Force center alignment for that "Minimalist" essay look */
+/* Center the main reading column */
+
 .main {
   margin: 0 auto;
   max-width: var(--main-width);
 }
 
-/* Remove sidebars and distractions */
+/* Post meta / tags */
+
 .post-meta,
 .post-tags {
   color: #666;
   font-size: 0.9rem;
 }
 
-/* --- Center Header Layout (The Minimalists Style) --- */
+/* =========================
+   Header + Navigation
+   ========================= */
 
-/* 1. Change the Navigation container to a vertical column */
+/* Stack everything vertically and center it */
+.header {
+  border-bottom: none;
+}
+
 .nav {
+  max-width: var(--nav-width);
+  margin: 0 auto;
   display: flex;
-  flex-direction: column; /* Stack Logo on top, Menu below */
-  align-items: center; /* Center align items horizontally */
+  flex-direction: column; /* Stack Logo, Title, Menu, Toggle */
+  align-items: center; /* Center horizontally */
   justify-content: center;
-  padding-top: 40px; /* Add top spacing like the inspo */
-  padding-bottom: 20px; /* Space before content starts */
+  padding-top: 32px;
+  padding-bottom: 24px;
+  gap: 12px; /* Vertical spacing between blocks */
 }
 
-/* 2. Fix the Logo positioning */
+/* Logo + title block */
+
 .logo {
-  margin-right: 0 !important; /* Remove default specific spacing */
-  margin-bottom: 20px; /* Add gap between Logo and Menu */
+  margin: 0; /* reset theme spacing */
 }
 
+/* The <a> around the logo text + image */
+.logo a {
+  display: flex;
+  flex-direction: column; /* Logo image on top, text under it */
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Logo image itself */
 .logo img {
   display: block;
-  margin: 0 auto; /* Ensure the image itself is centered */
+  margin: 0 auto 8px auto; /* Center + space below image */
+  height: auto; /* Let Hugo's iconHeight control height */
 }
 
-/* 3. Fix the Menu positioning */
+/* Site title text (“Yvette | Infrastructure & Platforms”) */
+.logo span {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Theme toggle under the menu, centered */
+
+.theme-toggle {
+  margin: 4px 0 0 0;
+  align-self: center;
+}
+
+/* Menu */
+
 .menu {
-  margin-left: 0 !important; /* Remove default "push to right" behavior */
-  width: 100%; /* specific for centering context */
+  margin: 0;
+  width: 100%;
   display: flex;
-  justify-content: center; /* Center the menu items */
+  justify-content: center; /* Center the menu block */
 }
 
-/* 4. Menu Items Spacing */
 .menu ul {
   display: flex;
   justify-content: center;
-  gap: 30px; /* Space between "Projects" and "Blog" */
+  gap: 30px; /* Space between “About / Projects / Blog” */
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+/* =========================
+   Home / profileMode content
+   ========================= */
+
+/* Profile mode (home hero) – center everything */
+.profile,
+.home-info {
+  text-align: center;
+}
+
+/* Buttons under the hero centered as well */
+.profile .buttons,
+.home-info .buttons {
+  justify-content: center;
+}
+
+/* =========================
+   Content alignment
+   ========================= */
+
+/* Center headings, justify body text */
+.post-title,
+.page-title,
+.list-title {
+  text-align: center;
+}
+
+/* Paragraphs justified for that “essay” feel */
+.post-content p,
+.page-content p {
+  text-align: justify;
 }

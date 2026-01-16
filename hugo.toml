@@ -14,7 +14,7 @@ theme = "PaperMod"
 
   [params.label]
     icon = "logoT.png"
-    iconHeight = 60
+    iconHeight = 150
     text = ""
 
   # HomePage 

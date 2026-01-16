@@ -295,3 +295,20 @@ h3 {
 .page-content {
   letter-spacing: 0.01em;
 }
+
+/* =========================
+   Fine‑tune logo centering
+   ======================== */
+
+/* Nudge the logo slightly left for optical centering */
+.logo a {
+  position: relative;
+  left: -8px; /* adjust -4 to -12px until it looks perfect on your screen */
+}
+
+/* On narrow screens, keep it truly centered */
+@media (max-width: 768px) {
+  .logo a {
+    left: 0;
+  }
+}

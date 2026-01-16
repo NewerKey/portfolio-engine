@@ -17,7 +17,7 @@ theme = "PaperMod"
 [params.profileMode]
     enabled = true
     title = "Heya, I'm Yvette" 
-    subtitle = "I design, maintain, and improve reliable software systems—and keep an eye out for automation opportunities that give you back time and focus."
+    subtitle = "I maintain, improve, and design reliable software systems—and keep an eye out for automation opportunities that give you back time and focus."
 
 
     [[params.profileMode.buttons]]

@@ -24,3 +24,44 @@ body {
   color: #666;
   font-size: 0.9rem;
 }
+
+/* --- Center Header Layout (The Minimalists Style) --- */
+
+/* 1. Change the Navigation container to a vertical column */
+.nav {
+  display: flex;
+  flex-direction: column; /* Stack Logo on top, Menu below */
+  align-items: center; /* Center align items horizontally */
+  justify-content: center;
+  padding-top: 40px; /* Add top spacing like the inspo */
+  padding-bottom: 20px; /* Space before content starts */
+}
+
+/* 2. Fix the Logo positioning */
+.logo {
+  margin-right: 0 !important; /* Remove default specific spacing */
+  margin-bottom: 20px; /* Add gap between Logo and Menu */
+}
+
+.logo img {
+  display: block;
+  margin: 0 auto; /* Ensure the image itself is centered */
+}
+
+/* 3. Fix the Menu positioning */
+.menu {
+  margin-left: 0 !important; /* Remove default "push to right" behavior */
+  width: 100%; /* specific for centering context */
+  display: flex;
+  justify-content: center; /* Center the menu items */
+}
+
+/* 4. Menu Items Spacing */
+.menu ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Space between "Projects" and "Blog" */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}

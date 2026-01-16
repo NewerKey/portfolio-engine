@@ -10,18 +10,19 @@ theme = "PaperMod"
     description = "Infrastructure Support Engineer | Digital Garden"
 
 # Minimalist Layout Settings
-[params.assets]
-    disableHLJS = true
+    [params.assets]
+      disableHLJS = true
 
-[params.label]
-    icon = "logoT.png"
-    iconHeight = 30
+    [params.label]
+      icon = "logoT.png"
+      iconHeight = 30
+      text = ""
 
 # HomePage 
-[params.profileMode]
-    enabled = true
-    title = "Heya, I'm Yvette" 
-    subtitle = "I maintain, improve, and design reliable software systems—and keep an eye out for automation opportunities that give you back time and focus."
+    [params.profileMode]
+      enabled = true
+      title = "Heya, I'm Yvette" 
+      subtitle = "I maintain, improve, and design reliable software systems—and keep an eye out for automation opportunities that give you back time and focus."
 
 # Main Menu (Simple)
 [[menu.main]]

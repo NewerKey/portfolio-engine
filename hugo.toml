@@ -14,7 +14,7 @@ theme = "PaperMod"
     disableHLJS = true
 
 [params.label]
-    icon = "logo.png"
+    icon = "logoT.png"
     iconHeight = 30
 
 # HomePage 

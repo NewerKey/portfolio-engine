@@ -1,22 +1,10 @@
 # Portfolio Engine 🚀
 
-A minimal, high-performance static site generator pipeline backed by a private Obsidian Vault.
+A minimal, "Headless" Static Site Generator for Obsidian users.
 
-This repository serves as the Presentation Layer (Engine) for my personal portfolio. It is decoupled from the Content Layer (Data), which resides in a private secure repository.
+> Fork this repository to create your own Portfolio.
 
-## Architecture
-
-The platform follows a Headless CMS pattern using Git as the single source of truth.
-
-![alt text](image.png)
-
-- Engine: Hugo (Static Site Generator) using the `PaperMod` theme.
-
-- Content: Private Obsidian Markdown files.
-
-- Pipeline: GitHub Actions to pick events from the private repository and trigger deployment.
-
-- Hosting: GitHub Pages
+This repository acts as the Engine. It contains the code, theme, and build pipeline. It is designed to be empty of content on purpose. It pulls its content from a separate, Private GitHub Repository (your Obsidian Vault) during the build process.
 
 ## 🛠 Prerequisites
 
@@ -26,60 +14,102 @@ The platform follows a Headless CMS pattern using Git as the single source of tr
 
 - Obsidian (for content creation)
 
-## 🚀 Quick Start (Local Development)
+## Architecture
 
-**Clone the Repo:**
+The platform follows a Headless CMS pattern using Git as the single source of truth.
+
+![alt text](image.png)
+
+- Secure: Your raw notes stay private. Only files marked publish: true are built.
+
+- Automated: Write in Obsidian -> Push -> Live Site updates in 60s.
+
+- Decoupled: You can swap this engine/theme without touching your notes.
+
+## Components
+
+- Engine: Hugo (Static Site Generator) using the `PaperMod` theme.
+
+- Content: Private Obsidian Markdown files.
+
+- Pipeline: GitHub Actions to pick events from the private repository and trigger deployment.
+
+- Hosting: GitHub Pages
+
+## 🚀 How to Use
+
+**Do not clone this directly.** Instead, follow these steps to make it your own.
+
+- Step 1: Fork the Engine
+
+  - Click the Fork button (top right of this page) to create a copy under your own GitHub account.
+
+  - Go to your new repository's Settings -> Pages.
+
+Source: GitHub Actions (or Deploy from a branch -> gh-pages depending on your setup).
+
+- Step 2: Create Your Content Vault
+
+  - Create a new, empty Private Repository on GitHub (e.g., my-obsidian-vault).
+
+  - In Obsidian, create the following folder structure to match the Engine's configuration:
+
+![alt text](image-1.png)
+
+- Step 3: Connect The Public and Private Repos
+
+  - [Personal Access Token](https://github.com/settings/tokens)
+
+  - Go to your Forked Engine Repo -> Settings -> Secrets and variables -> Actions -> New Repo Secret. Do same for the private Repo
 
 ```bash
-git clone --recurse-submodules https://github.com/NewerKey/portfolio-engine.git
+PAT_TOKEN=your_token
 ```
 
-**Install Dependencies:** If you didn't use --recurse-submodules, pull the theme:
+- Step 4: Configure the Pipeline
+
+  - Open `.github/workflows/sync-and-deploy.yml` in your fork.
+
+  - Update the repository variable with yours.
+
+## ⚙️ Configuration (hugo.toml)
+
+You must update the configuration file to match your details, or the site will break.
+
+- Open `hugo.toml` and change: `baseURL = "https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/"`
+
+- Profile, Name & Logo:
 
 ```bash
-git submodule update --init --recursive
+title = "Your Name"
+[params.label]
+    icon = "logo.png" # Upload your own logo to /static/ folder
 ```
 
-## Run the Server
+- Menu Links: Adjust the [[menu.main]] section if you changed folder names in Obsidian.
 
-`hugo server -D`
+## 📝 Writing & Publishing
 
-## Config & Secrets
-
-Create a Personal Access Token allowing the Engine to pull from the Private Vault and push to gh-pages.
-
-Get token here --> [Personal Access Token](https://github.com/settings/tokens) --> Scope: repo, workflow --> save in both private and public repo settings under secrets as below
-
-```bash
-PAT_TOKEN
-```
-
-## 📝 Publishing Workflow
-
-You can then manage your content within Obsidian locally or private repo.
-
-1. Write: Create a note in your private Obsidian vault.
-
-2. Flag: Add the following Frontmatter to any note you wish to publish:
+1. Write normally in Obsidian
+2. Publish a specific note by adding this to the top of the file:
 
 ```bash
 ---
-title: "My New Post"
-date: 2026-01-01
-publish: true  <-- The Workflow Trigger Switch
+title: "My Note Title"
+publish: true
 ---
 ```
-
-- Push: Commit and push your Obsidian vault (or use the Obsidian Git plugin).
-
-- Deploy: The pipeline automatically triggers, filters only publish: true files, converts WikiLinks, and deploys.
 
 ## 🎨 Customization
 
-- Theme Config: hugo.toml.example (Adjust menus, profile info, social links).
+- Theme Config: Uses [PaperMod](https://github.com/adityatelange/hugo-PaperMod)
 
 - Images: static/
 
 - Styling: assets/css/custom.css (Overrides for typography and layout).
 
 - Layouts: layouts/ (HTML structure overrides).
+
+---
+
+Original "Portfolio Engine" created by [NewerKey](https://github.com/NewerKey).

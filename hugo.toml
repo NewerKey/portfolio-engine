@@ -24,8 +24,8 @@ theme = "PaperMod"
       name = "Projects"
       url = "/projects"
     [[params.profileMode.buttons]]
-      name = "Notes"
-      url = "/notes"
+      name = "Blog"
+      url = "/blog"
 
 # Main Menu (Simple)
 [[menu.main]]
@@ -34,7 +34,7 @@ theme = "PaperMod"
   url = "/projects/"
   weight = 10
 [[menu.main]]
-  identifier = "notes"
-  name = "Notes"
-  url = "/notes/"
+  identifier = "blog"
+  name = "Blog"
+  url = "/blog/"
   weight = 20

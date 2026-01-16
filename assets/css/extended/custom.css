@@ -78,7 +78,7 @@ body {
   display: block;
   margin: 0 auto 6px auto; /* small gap under image */
   height: auto !important; /* ignore inline height from iconHeight */
-  max-height: 110px; /* desktop cap: adjust to taste */
+  max-height: 140px; /* 🔼 bigger logo on desktop */
   width: auto;
   max-width: 100%; /* prevent overflow on narrow screens */
 }
@@ -86,7 +86,7 @@ body {
 /* Smaller logo on mobile */
 @media (max-width: 768px) {
   .logo img {
-    max-height: 80px;
+    max-height: 95px;
   }
 }
 
@@ -207,15 +207,21 @@ body {
    Home / profileMode content
    ======================== */
 
+/* Center hero block and match content width */
 .profile,
 .home-info {
-  margin-top: 8px !important; /* bring hero text closer to header */
-  text-align: center;
+  margin-top: 16px !important;
+  text-align: center !important;
+  max-width: var(--main-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Make sure the hero title itself is centered */
 .profile h1,
 .home-info h1 {
   margin-top: 0.5rem;
+  text-align: center !important;
 }
 
 /* =========================

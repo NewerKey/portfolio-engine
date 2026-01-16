@@ -1,6 +1,6 @@
 baseURL = "https://newerkey.github.io/portfolio-engine/"
 languageCode = "en-us"
-title = "Yvette | Infrastructure & Platforms"
+title = ""
 theme = "PaperMod"
 
 [params]
@@ -14,7 +14,7 @@ theme = "PaperMod"
 
   [params.label]
     icon = "logoT.png"
-    iconHeight = 150
+    iconHeight = 250     # <--- INCREASED SIZE (Adjust to 300 if still too small)
     text = ""
 
   # HomePage 
@@ -42,7 +42,7 @@ theme = "PaperMod"
     url        = "/projects/"
     weight     = 20
 
-  # Top-level: Blog (parent for submenu)
+  # Top-level: Blog (The Parent)
   [[menu.main]]
     identifier = "blog"
     name       = "Blog"
@@ -52,25 +52,25 @@ theme = "PaperMod"
   # ---- Blog submenus ----
 
   [[menu.main]]
+    parent = "blog"
     name   = "Start here"
     url    = "/blog/start-here/"
-    parent = "blog"
     weight = 31
 
   [[menu.main]]
+    parent = "blog"
     name   = "How I do things"
     url    = "/blog/how-i-do-things/"
-    parent = "blog"
     weight = 32
 
   [[menu.main]]
+    parent = "blog"
     name   = "Deep Dives"
     url    = "/blog/deep-dives/"
-    parent = "blog"
     weight = 33
 
   [[menu.main]]
+    parent = "blog"
     name   = "Cheatsheets"
     url    = "/blog/cheatsheets/"
-    parent = "blog"
     weight = 34

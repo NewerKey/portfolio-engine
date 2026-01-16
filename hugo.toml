@@ -1,6 +1,6 @@
 baseURL = "https://newerkey.github.io/portfolio-engine/"
 languageCode = "en-us"
-title = ""
+title = "Infrastructure, Automation, Clarity-ish"
 theme = "PaperMod"
 
 [params]
@@ -59,6 +59,12 @@ theme = "PaperMod"
 
   [[menu.main]]
     parent = "blog"
+    name   = "Cheatsheets"
+    url    = "/blog/cheatsheets/"
+    weight = 34
+
+  [[menu.main]]
+    parent = "blog"
     name   = "How I do things"
     url    = "/blog/how-i-do-things/"
     weight = 32
@@ -68,9 +74,3 @@ theme = "PaperMod"
     name   = "Deep Dives"
     url    = "/blog/deep-dives/"
     weight = 33
-
-  [[menu.main]]
-    parent = "blog"
-    name   = "Cheatsheets"
-    url    = "/blog/cheatsheets/"
-    weight = 34

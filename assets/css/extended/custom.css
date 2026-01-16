@@ -26,7 +26,7 @@ body {
 .post-meta,
 .post-tags {
   color: #666;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
 }
 
 /* =========================
@@ -71,9 +71,8 @@ body {
   height: auto; /* Let Hugo's iconHeight control height */
 }
 
-/* Site title text (“Yvette | Infrastructure & Platforms”) */
 .logo span {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 

@@ -14,11 +14,11 @@ body {
     sans-serif;
 }
 
-/* Center the main reading column */
-
+/* Center the main reading column + kill extra top padding */
 .main {
   margin: 0 auto;
   max-width: var(--main-width);
+  padding-top: 0 !important; /* 🔧 reduce gap under header */
 }
 
 /* Post meta / tags */
@@ -33,27 +33,28 @@ body {
    Header + Navigation
    ========================= */
 
-/* Stack everything vertically and center it */
+/* Optional: remove default header border if any */
 .header {
   border-bottom: none;
 }
 
+/* Stack everything vertically and center it */
 .nav {
   max-width: var(--nav-width);
   margin: 0 auto;
   display: flex;
   flex-direction: column; /* Stack Logo, Title, Menu, Toggle */
-  align-items: center; /* Center horizontally */
+  align-items: center;
   justify-content: center;
-  padding-top: 32px;
-  padding-bottom: 24px;
-  gap: 12px; /* Vertical spacing between blocks */
+  padding-top: 16px; /* 🔧 was larger; tighten */
+  padding-bottom: 8px; /* 🔧 less space below header */
+  gap: 4px; /* small gap between logo/title/menu */
 }
 
 /* Logo + title block */
 
 .logo {
-  margin: 0; /* reset theme spacing */
+  margin: 0;
 }
 
 /* The <a> around the logo text + image */
@@ -67,17 +68,18 @@ body {
 /* Logo image itself */
 .logo img {
   display: block;
-  margin: 0 auto 8px auto; /* Center + space below image */
-  height: auto; /* Let Hugo's iconHeight control height */
+  margin: 0 auto 4px auto; /* small gap under image */
+  /* If 150 in hugo.toml still feels huge, you can hard-limit it: */
+  /* height: 150px !important; */
 }
 
+/* Site title text under logo (if you keep label.text non-empty) */
 .logo span {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
 }
 
-/* Theme toggle under the menu, centered */
-
+/* Theme toggle centered under menu */
 .theme-toggle {
   margin: 4px 0 0 0;
   align-self: center;
@@ -89,13 +91,13 @@ body {
   margin: 0;
   width: 100%;
   display: flex;
-  justify-content: center; /* Center the menu block */
+  justify-content: center;
 }
 
 .menu ul {
   display: flex;
   justify-content: center;
-  gap: 30px; /* Space between “About / Projects / Blog” */
+  gap: 30px;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -105,23 +107,23 @@ body {
    Home / profileMode content
    ========================= */
 
-/* Profile mode (home hero) – center everything */
+/* Pull hero/title closer to header */
 .profile,
 .home-info {
+  margin-top: 8px !important; /* 🔧 bring "Infrastructure, Automation..." up */
   text-align: center;
 }
 
-/* Buttons under the hero centered as well */
-.profile .buttons,
-.home-info .buttons {
-  justify-content: center;
+/* Tighten top margin on first heading */
+.profile h1,
+.home-info h1 {
+  margin-top: 0.5rem;
 }
 
 /* =========================
    Content alignment
    ========================= */
 
-/* Center headings, justify body text */
 .post-title,
 .page-title,
 .list-title {

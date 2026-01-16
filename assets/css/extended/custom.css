@@ -46,6 +46,9 @@ body {
 .logo img {
   display: block;
   margin: 0 auto; /* Ensure the image itself is centered */
+
+  width: 150px; /* Adjust logo size as needed */
+  height: auto;
 }
 
 /* 3. Fix the Menu positioning */

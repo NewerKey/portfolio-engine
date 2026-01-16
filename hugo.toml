@@ -1,6 +1,5 @@
 baseURL = "https://newerkey.github.io/portfolio-engine/"
 languageCode = 'en-us'
-title = 'Yvette Nartey'
 theme = "PaperMod"
 
 
@@ -15,7 +14,7 @@ theme = "PaperMod"
 
     [params.label]
       icon = "logoT.png"
-      iconHeight = 30
+      iconHeight = 150
       text = ""
 
 # HomePage 

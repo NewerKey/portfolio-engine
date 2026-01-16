@@ -76,7 +76,9 @@ publish: true  <-- The Workflow Trigger Switch
 
 ## 🎨 Customization
 
-- Theme Config: hugo.toml (Adjust menus, profile info, social links).
+- Theme Config: hugo.toml.example (Adjust menus, profile info, social links).
+
+- Images: static/
 
 - Styling: assets/css/custom.css (Overrides for typography and layout).
 

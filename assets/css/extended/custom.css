@@ -113,6 +113,26 @@ body {
 }
 
 /* =========================
+   Site tagline under logo
+   ======================== */
+
+.site-tagline {
+  margin-top: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  max-width: var(--main-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .site-tagline {
+    font-size: 1.4rem;
+  }
+}
+
+/* =========================
    Main menu (top level)
    ======================== */
 
@@ -157,6 +177,7 @@ body {
 .menu a:hover {
   color: #111;
 }
+
 /* =========================
    Dropdown submenus on hover
    ======================== */

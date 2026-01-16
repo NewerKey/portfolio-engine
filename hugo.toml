@@ -1,12 +1,13 @@
 baseURL = "https://newerkey.github.io/portfolio-engine/"
 languageCode = "en-us"
-title = "Infrastructure, Cloud, Integration & Automation"
+title = "Yvette Nartey"
 theme = "PaperMod"
 
 [params]
   defaultTheme = "light"
   env = "production"
   description = "Infrastructure Support Engineer | Digital Garden"
+  target = "Infrastructure, Cloud, Integration & Automation"
 
   # Minimalist Layout Settings
   [params.assets]
@@ -14,7 +15,7 @@ theme = "PaperMod"
 
   [params.label]
     icon = "logoT.png"
-    iconHeight = 120   
+    iconHeight = 160   
     text = ""
 
   # HomePage 

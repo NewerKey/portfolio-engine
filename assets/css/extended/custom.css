@@ -1,3 +1,8 @@
+/* =========================
+   Fonts: Outfit from Google
+   ========================= */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+
 :root {
   --gap: 24px;
   --content-gap: 20px;
@@ -5,23 +10,24 @@
   --main-width: 720px; /* Narrower reading width */
 }
 
-/* Base */
+/* =========================
+   Base + Layout
+   ========================= */
 
 body {
   background-color: #fafafa; /* Off-white paper look */
   color: #222;
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto,
-    sans-serif;
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+    Roboto, sans-serif;
+  font-size: 17px; /* base size */
+  line-height: 1.7; /* comfy reading */
 }
 
-/* Center the main reading column + kill extra top padding */
 .main {
   margin: 0 auto;
   max-width: var(--main-width);
-  padding-top: 0 !important; /* 🔧 reduce gap under header */
+  padding-top: 0 !important; /* reduce gap under header */
 }
-
-/* Post meta / tags */
 
 .post-meta,
 .post-tags {
@@ -33,7 +39,6 @@ body {
    Header + Navigation
    ========================= */
 
-/* Optional: remove default header border if any */
 .header {
   border-bottom: none;
 }
@@ -43,12 +48,12 @@ body {
   max-width: var(--nav-width);
   margin: 0 auto;
   display: flex;
-  flex-direction: column; /* Stack Logo, Title, Menu, Toggle */
+  flex-direction: column; /* Logo on top, then menu, then toggle */
   align-items: center;
   justify-content: center;
-  padding-top: 16px; /* 🔧 was larger; tighten */
-  padding-bottom: 8px; /* 🔧 less space below header */
-  gap: 4px; /* small gap between logo/title/menu */
+  padding-top: 32px; /* slightly more space above logo */
+  padding-bottom: 24px; /* more room before page content */
+  gap: 12px; /* space between logo and menu block */
 }
 
 /* Logo + title block */
@@ -57,10 +62,10 @@ body {
   margin: 0;
 }
 
-/* The <a> around the logo text + image */
+/* Link wrapping logo image + site title */
 .logo a {
   display: flex;
-  flex-direction: column; /* Logo image on top, text under it */
+  flex-direction: column;
   align-items: center;
   text-decoration: none;
 }
@@ -68,70 +73,182 @@ body {
 /* Logo image itself */
 .logo img {
   display: block;
-  margin: 0 auto 4px auto; /* small gap under image */
-  /* If 150 in hugo.toml still feels huge, you can hard-limit it: */
-  /* height: 150px !important; */
+  margin: 0 auto 6px auto; /* small gap under image */
+  /* If 150 in hugo.toml feels huge, uncomment and tweak: */
+  /* height: 140px !important; */
 }
 
-/* Site title text under logo (if you keep label.text non-empty) */
+/* Site title next to/under logo */
 .logo span {
   font-size: 1.05rem;
   font-weight: 600;
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+    Roboto, sans-serif;
 }
 
-/* Theme toggle centered under menu */
+/* Theme toggle centered */
 .theme-toggle {
   margin: 4px 0 0 0;
   align-self: center;
 }
 
-/* Menu */
+/* Main menu (top level) */
 
 .menu {
   margin: 0;
   width: 100%;
+  max-width: 900px; /* visually similar width to reference */
   display: flex;
   justify-content: center;
+  border-top: 1px solid #e0e0e0; /* thin line above menu */
+  padding-top: 10px; /* little gap between line and items */
 }
 
 .menu ul {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  align-items: center;
+  gap: 32px; /* even spacing between items */
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+/* Menu item text style: uppercase, letterspacing, calm colors */
+.menu a {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #555;
+  padding-bottom: 4px; /* space for active underline */
+}
+
+/* Active/current page link – bold + dark + small underline */
+.menu a.active,
+.menu a[aria-current="page"] {
+  font-weight: 600;
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+/* Hover state – darker but no extra decoration */
+.menu a:hover {
+  color: #111;
+}
+
+/* Theme toggle: sit just under the menu, centered and subtle */
+.theme-toggle {
+  margin-top: 10px;
+  align-self: center;
+}
+
+/* =========================
+   Dropdown submenus on hover
+   ========================= */
+
+/* Top-level menu items anchor the dropdowns */
+.menu ul > li {
+  position: relative;
+}
+
+/* Hidden submenu by default */
+/* Dropdown still works, but appears directly under a parent item */
+.menu ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fafafa;
+  padding: 6px 0;
+  margin: 8px 0 0 0;
+  list-style: none;
+  min-width: 180px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  border: 1px solid #eee;
+  z-index: 1000;
+}
+
+/* Show submenu on hover or keyboard focus */
+.menu ul li:hover > ul,
+.menu ul li:focus-within > ul {
+  display: block;
+}
+
+/* Submenu links */
+.menu ul li ul li a {
+  display: block;
+  padding: 6px 16px;
+  font-size: 0.95rem;
+  color: #222;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Hover state for submenu items */
+.menu ul li ul li a:hover {
+  background-color: #f0f0f0;
 }
 
 /* =========================
    Home / profileMode content
    ========================= */
 
-/* Pull hero/title closer to header */
 .profile,
 .home-info {
-  margin-top: 8px !important; /* 🔧 bring "Infrastructure, Automation..." up */
+  margin-top: 8px !important; /* bring hero text closer to header */
   text-align: center;
 }
 
-/* Tighten top margin on first heading */
 .profile h1,
 .home-info h1 {
   margin-top: 0.5rem;
 }
 
 /* =========================
-   Content alignment
+   Typography & Content
    ========================= */
 
+/* Heading scale using Outfit */
+h1,
 .post-title,
 .page-title,
 .list-title {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+    Roboto, sans-serif;
+  font-size: 2.1rem;
+  font-weight: 600;
   text-align: center;
+  margin: 1.5rem 0 1rem 0;
 }
 
-/* Paragraphs justified for that “essay” feel */
+h2 {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+    Roboto, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 1.5rem 0 0.75rem 0;
+}
+
+h3 {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+    Roboto, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 1.25rem 0 0.6rem 0;
+}
+
+/* Paragraphs: minimalist essay feel */
 .post-content p,
 .page-content p {
   text-align: justify;
+  margin-bottom: 1.2em;
+}
+
+/* Optional slight tracking for readability */
+.post-content,
+.page-content {
+  letter-spacing: 0.01em;
 }

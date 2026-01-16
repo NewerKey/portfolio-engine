@@ -1,6 +1,6 @@
 baseURL = "https://newerkey.github.io/portfolio-engine/"
 languageCode = "en-us"
-title = "Infrastructure, Automation, Clarity-ish"
+title = "Infrastructure, Cloud, Integration & Automation"
 theme = "PaperMod"
 
 [params]

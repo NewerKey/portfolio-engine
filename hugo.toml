@@ -1,5 +1,6 @@
 baseURL = "https://newerkey.github.io/portfolio-engine/"
 languageCode = "en-us"
+title = "Yvette | Infrastructure & Platforms"
 theme = "PaperMod"
 
 [params]

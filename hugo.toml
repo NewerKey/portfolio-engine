@@ -16,8 +16,8 @@ theme = "PaperMod"
 # HomePage 
 [params.profileMode]
     enabled = true
-    title = "Yvette Nartey" 
-    subtitle = "Supporting and Building reliable platforms. Automating the rest where necessary."
+    title = "Heya, I'm Yvette" 
+    subtitle = "I design, maintain, and improve reliable software systems—and keep an eye out for automation opportunities that give you back time and focus."
 
 
     [[params.profileMode.buttons]]

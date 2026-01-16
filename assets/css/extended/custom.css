@@ -1,6 +1,6 @@
 /* =========================
    Fonts: Outfit from Google
-   ========================= */
+   ======================== */
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
 
 :root {
@@ -12,7 +12,7 @@
 
 /* =========================
    Base + Layout
-   ========================= */
+   ======================== */
 
 body {
   background-color: #fafafa; /* Off-white paper look */
@@ -37,7 +37,7 @@ body {
 
 /* =========================
    Header + Navigation
-   ========================= */
+   ======================== */
 
 .header {
   border-bottom: none;
@@ -45,40 +45,52 @@ body {
 
 /* Stack everything vertically and center it */
 .nav {
-  max-width: var(--nav-width);
+  max-width: var(--main-width); /* align header with content column */
   margin: 0 auto;
   display: flex;
-  flex-direction: column; /* Logo on top, then menu, then toggle */
+  flex-direction: column; /* Logo on top, then menu */
   align-items: center;
   justify-content: center;
   padding-top: 32px; /* slightly more space above logo */
-  padding-bottom: 24px; /* more room before page content */
+  padding-bottom: 24px; /* room before page content */
   gap: 12px; /* space between logo and menu block */
+  position: relative; /* for absolute-positioned toggle */
 }
 
 /* Logo + title block */
 
 .logo {
   margin: 0;
+  width: 100%;
+  text-align: center;
 }
 
 /* Link wrapping logo image + site title */
 .logo a {
-  display: flex;
+  display: inline-flex; /* inline so it centers nicely */
   flex-direction: column;
   align-items: center;
   text-decoration: none;
 }
 
-/* Logo image itself */
+/* Logo image itself: size + center */
 .logo img {
   display: block;
   margin: 0 auto 6px auto; /* small gap under image */
-  /* If 150 in hugo.toml feels huge, uncomment and tweak: */
-  /* height: 140px !important; */
+  height: auto !important; /* ignore inline height from iconHeight */
+  max-height: 110px; /* desktop cap: adjust to taste */
+  width: auto;
+  max-width: 100%; /* prevent overflow on narrow screens */
 }
 
-/* Site title next to/under logo */
+/* Smaller logo on mobile */
+@media (max-width: 768px) {
+  .logo img {
+    max-height: 80px;
+  }
+}
+
+/* Site title next to/under logo (if label.text is non-empty) */
 .logo span {
   font-size: 1.05rem;
   font-weight: 600;
@@ -86,13 +98,17 @@ body {
     Roboto, sans-serif;
 }
 
-/* Theme toggle centered */
+/* Theme toggle pinned top-right of header, out of layout flow */
 .theme-toggle {
-  margin: 4px 0 0 0;
-  align-self: center;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  margin: 0;
 }
 
-/* Main menu (top level) */
+/* =========================
+   Main menu (top level)
+   ======================== */
 
 .menu {
   margin: 0;
@@ -137,23 +153,16 @@ body {
   color: #111;
 }
 
-/* Theme toggle: sit just under the menu, centered and subtle */
-.theme-toggle {
-  margin-top: 10px;
-  align-self: center;
-}
-
 /* =========================
    Dropdown submenus on hover
-   ========================= */
+   ======================== */
 
 /* Top-level menu items anchor the dropdowns */
 .menu ul > li {
   position: relative;
 }
 
-/* Hidden submenu by default */
-/* Dropdown still works, but appears directly under a parent item */
+/* Hidden submenu by default; appears directly under parent item */
 .menu ul li ul {
   display: none;
   position: absolute;
@@ -185,6 +194,8 @@ body {
   color: #222;
   text-decoration: none;
   white-space: nowrap;
+  text-transform: none; /* subitems can be normal case */
+  letter-spacing: 0;
 }
 
 /* Hover state for submenu items */
@@ -194,7 +205,7 @@ body {
 
 /* =========================
    Home / profileMode content
-   ========================= */
+   ======================== */
 
 .profile,
 .home-info {
@@ -209,7 +220,7 @@ body {
 
 /* =========================
    Typography & Content
-   ========================= */
+   ======================== */
 
 /* Heading scale using Outfit */
 h1,

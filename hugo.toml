@@ -1,28 +1,28 @@
-baseURL = "https://newerkey.github.io/portfolio-engine/"
+baseURL = "https://YOUR-USERNAME.github.io/YOUR-REPO/"
 languageCode = "en-us"
-title = "Yvette Nartey"
+title = "Your Name"
 theme = "PaperMod"
 
 [params]
   defaultTheme = "light"
   env = "production"
-  description = "Infrastructure Support Engineer | Digital Garden"
-  target = "Infrastructure, Cloud, Integration & Automation"
+  description = "Your Site Description"
+  target = "My Portfolio"
 
   # Minimalist Layout Settings
   [params.assets]
     disableHLJS = true
 
   [params.label]
-    icon = "logoT.png"
+    icon = "logoT.jpg"
     iconHeight = 160   
     text = ""
 
   # HomePage 
   [params.profileMode]
     enabled = true
-    title = "Heya, I'm Yvette"
-    subtitle = "I maintain, improve, and design reliable software systems—and keep an eye out for automation opportunities that give you back time and focus."
+    title = "Hi, I'm [Name]"
+    subtitle = "Welcome to my digital garden. This is a sub-title."
 
 # ==========================
 # Main Menu

@@ -1,0 +1,40 @@
+baseURL = 
+languageCode = 
+title = 
+theme = "PaperMod"
+
+
+[params]
+    defaultTheme = 
+    env = 
+    description = 
+
+# Minimalist Layout Settings
+[params.assets]
+    disableHLJS = true 
+
+# HomePage 
+[params.profileMode]
+    enabled = 
+    title = 
+    subtitle = 
+
+
+    [[params.profileMode.buttons]]
+      name = "
+      url = "/projects"
+    [[params.profileMode.buttons]]
+      name = "Notes"
+      url = "/notes"
+
+# Main Menu (Simple)
+[[menu.main]]
+  identifier = "projects"
+  name = "Projects"
+  url = "/projects/"
+  weight = 10
+[[menu.main]]
+  identifier = "notes"
+  name = "Notes"
+  url = "/notes/"
+  weight = 20

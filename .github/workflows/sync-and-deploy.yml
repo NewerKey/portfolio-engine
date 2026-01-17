@@ -2,8 +2,8 @@ name: Build and Deploy Portfolio
 
 on:
   push:
-    branches:
-      - main
+    #branches:
+    #  - main # Uncomment to enable on push to main branch
   # Allows external triggers (eg. From Obsidian Private Repo)
   repository_dispatch:
     types: [publish-event]
@@ -22,7 +22,7 @@ jobs:
       - name: Checkout Content (Your Private Obsidian Vault)
         uses: actions/checkout@v3
         with:
-          repository: NewerKey/obsidian-portfolio-vault
+          repository: your-username/your-private-vault-repo
           token: ${{ secrets.PAT_TOKEN }}
           path: temp_vault
 
